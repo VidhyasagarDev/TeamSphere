@@ -13,7 +13,9 @@ const GlobalStyle = createGlobalStyle`
         --color-brand-800: #1e40af;
         --color-brand-900: #1e3a8a;
         --color-brand-950: #172554;
+        --color-aside: #192432;
 
+        --color-grey-0: #fff;
         --color-grey-50: #f8fafc;
         --color-grey-100: #f1f5f9;
         --color-grey-200: #e2e8f0;
@@ -25,6 +27,15 @@ const GlobalStyle = createGlobalStyle`
         --color-grey-800: #1e293b;
         --color-grey-900: #0f172a;
         --color-grey-950: #020617;
+
+        --border-radius-tiny: 3px;
+        --border-radius-sm: 5px;
+        --border-radius-md: 7px;
+        --border-radius-lg: 9px;
+
+        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+        --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
     }
 
     *,
@@ -33,6 +44,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        transition: backgrond-color .3s;
     }
 
     html {
@@ -42,8 +54,8 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Inter', sans-serif;
         color: var(--color-grey-700);
-        line-height: 1.5;
-        font-size: 1.6rem;
+        line-height: 1;
+        font-size: 1.4rem;
     }
 
     input,
@@ -72,7 +84,7 @@ const GlobalStyle = createGlobalStyle`
     button:focus,
     textarea:focus,
     select:focus {
-        outline: 2px solid var(--color-brand-600);
+        outline: 2px solid var(--color-brand-400);
         outline-offset: -1px;
     }
 
@@ -98,6 +110,10 @@ const GlobalStyle = createGlobalStyle`
 
     img {
         max-width: 100%;
+    }
+
+    .text-primary {
+        color: var(--color-brand-600);
     }
 `;
 

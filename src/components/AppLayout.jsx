@@ -1,21 +1,34 @@
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import Sidebar from "./Sidebar";
+import Header from "./Header";
 
 const StyledAppLayout = styled.div`
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+`;
+
+const Content = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Main = styled.main`
-  background-color: lightcoral;
+  background-color: var(--color-grey-100);
+  flex: 1;
 `;
 
 function AppLayout() {
   return (
     <StyledAppLayout>
       <Sidebar />
-      <Main></Main>
+      <Content>
+        <Header />
+        <Main>
+          <Outlet />
+        </Main>
+      </Content>
     </StyledAppLayout>
   );
 }
