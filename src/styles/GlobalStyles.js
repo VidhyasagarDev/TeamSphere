@@ -81,11 +81,14 @@ const GlobalStyle = createGlobalStyle`
     }
 
     input:focus,
-    button:focus,
     textarea:focus,
     select:focus {
-        outline: 2px solid var(--color-brand-400);
+        outline: 2px solid var(--color-brand-500);
         outline-offset: -1px;
+    }
+
+    button:focus {
+        outline: 2px solid var(--color-brand-300);
     }
 
     a {

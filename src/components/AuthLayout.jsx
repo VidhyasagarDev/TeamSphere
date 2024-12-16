@@ -23,7 +23,7 @@ const StyledAuthentication = styled.div`
 const Card = styled.div`
   padding: 4rem;
   background-color: var(--color-grey-0);
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-200);
   border-radius: var(--border-radius-sm);
 `;
 
