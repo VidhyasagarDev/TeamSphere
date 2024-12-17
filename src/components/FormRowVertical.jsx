@@ -12,17 +12,22 @@ const Label = styled.label`
   font-weight: 500;
 `;
 
+const Error = styled.span`
+  font-size: 1.4rem;
+  color: var(--color-red-700);
+`;
+
 function FormRowVertical({ label, subLabel, children, error }) {
   return (
     <StyledFormRowVertical>
       {label && (
-        <Row justify="space-between">
+        <Row>
           <Label htmlFor={children.props.id}>{label}</Label>
           {subLabel}
         </Row>
       )}
       {children}
-      {error && { error }}
+      {error && <Error>{error}</Error>}
     </StyledFormRowVertical>
   );
 }

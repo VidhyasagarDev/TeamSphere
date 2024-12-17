@@ -31,7 +31,7 @@ function AuthLayout() {
   return (
     <StyledAuthLayout>
       <StyledAuthentication>
-        <Row direction="column">
+        <Row $direction="column">
           <Logo />
           <Card>
             <Outlet />

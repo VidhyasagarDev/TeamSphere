@@ -1,25 +1,57 @@
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import Button from "../../../components/Button";
 import FormRowVertical from "../../../components/FormRowVertical";
 import Input from "../../../components/Input";
 import Row from "../../../components/Row";
 
 function Login() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm();
+
+  function onSubmitLogin(data) {
+    console.log(data, "submitted");
+  }
+
   return (
-    <Row direction="column">
-      <FormRowVertical label="Email address">
-        <Input type="email" id="email" />
-      </FormRowVertical>
-      <FormRowVertical
-        label="Password"
-        subLabel={<Link className="text-primary">I forgot Password</Link>}
-      >
-        <Input type="password" id="password" />
-      </FormRowVertical>
-      <FormRowVertical>
-        <Button>Sign In</Button>
-      </FormRowVertical>
-    </Row>
+    <form onSubmit={handleSubmit(onSubmitLogin)}>
+      <Row $direction="column">
+        <FormRowVertical label="Email address" error={errors.email?.message}>
+          <Input
+            type="email"
+            id="email"
+            {...register("email", {
+              required: "Email address in required.",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Enter a valid email address.",
+              },
+            })}
+          />
+        </FormRowVertical>
+        <FormRowVertical
+          label="Password"
+          subLabel={<Link className="text-primary">I forgot Password</Link>}
+          error={errors.password?.message}
+        >
+          <Input
+            type="password"
+            id="password"
+            {...register("password", {
+              required: "Password is required.",
+            })}
+          />
+        </FormRowVertical>
+        <FormRowVertical>
+          <Button type="submit" disabled={isSubmitting}>
+            Sign In
+          </Button>
+        </FormRowVertical>
+      </Row>
+    </form>
   );
 }
 
