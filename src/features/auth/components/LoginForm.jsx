@@ -4,8 +4,9 @@ import Button from "../../../components/Button";
 import FormRowVertical from "../../../components/FormRowVertical";
 import Input from "../../../components/Input";
 import Row from "../../../components/Row";
+import { login } from "../authSlice";
 
-function Login() {
+function LoginForm() {
   const {
     register,
     handleSubmit,
@@ -14,6 +15,7 @@ function Login() {
 
   function onSubmitLogin(data) {
     console.log(data, "submitted");
+    console.log(login());
   }
 
   return (
@@ -55,4 +57,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginForm;
